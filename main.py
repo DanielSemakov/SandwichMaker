@@ -35,8 +35,6 @@ resources = {
 
 
 ### Complete functions ###
-
-
 class SandwichMachine:
 
     def __init__(self, machine_resources):
@@ -113,3 +111,44 @@ class SandwichMachine:
         print(f"{bread_ingred.capitalize()}: {amt_bread} slice(s)")
         print(f"{ham_ingred.capitalize()}: {amt_ham} slice(s)")
         print(f"{cheese_ingred.capitalize()}: {amt_cheese} ounce(s)")
+
+def main():
+    while True:
+        user_input = input(
+            "What would you like? (small/ medium/ large/ off/ report): ")
+
+        if user_input == "off":
+            break
+
+        sandwich_machine = SandwichMachine(resources)
+
+        if user_input == "report":
+            sandwich_machine.show_report()
+
+        small_size = "small"
+        medium_size = "medium"
+        large_size = "large"
+
+        if user_input in (small_size, medium_size, large_size):
+            sandwich_size = user_input
+
+            size_dict = recipes[sandwich_size]
+            ingredients_dict = size_dict["ingredients"]
+
+            is_enough_resources = sandwich_machine.check_resources(
+                ingredients_dict)
+
+            if is_enough_resources:
+                amt_money = sandwich_machine.process_coins()
+
+                sandwich_dict = recipes[sandwich_size]
+                sandwich_cost = sandwich_dict["cost"]
+
+                if sandwich_machine.transaction_result(amt_money,
+                                                       sandwich_cost):
+                    sandwich_machine.make_sandwich(sandwich_size,
+                                                   ingredients_dict)
+
+
+if __name__ == "__main__":
+    main()
