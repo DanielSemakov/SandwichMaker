@@ -90,6 +90,16 @@ class SandwichMachine:
     def make_sandwich(self, sandwich_size, order_ingredients) -> None:
         """Deduct the required ingredients from the resources.
            Hint: no output"""
+        bread_ingred = "bread"
+        ham_ingred = "ham"
+        cheese_ingred = "cheese"
+
+        self.machine_resources[bread_ingred] -= order_ingredients[bread_ingred]
+        self.machine_resources[ham_ingred] -= order_ingredients[ham_ingred]
+        self.machine_resources[cheese_ingred] -= order_ingredients[
+            cheese_ingred]
+
+        print(f"{sandwich_size.capitalize()} sandwich is ready. Bon appetit!")
 
 
 ### Make an instance of SandwichMachine class and write the rest of the codes ###
