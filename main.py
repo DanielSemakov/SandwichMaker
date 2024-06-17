@@ -141,8 +141,7 @@ def main():
             if is_enough_resources:
                 amt_money = sandwich_machine.process_coins()
 
-                sandwich_dict = recipes[sandwich_size]
-                sandwich_cost = sandwich_dict["cost"]
+                sandwich_cost = size_dict["cost"]
 
                 if sandwich_machine.transaction_result(amt_money,
                                                        sandwich_cost):
