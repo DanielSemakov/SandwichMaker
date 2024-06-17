@@ -101,6 +101,15 @@ class SandwichMachine:
 
         print(f"{sandwich_size.capitalize()} sandwich is ready. Bon appetit!")
 
+    def show_report(self):
+        bread_ingred = "bread"
+        ham_ingred = "ham"
+        cheese_ingred = "cheese"
 
-### Make an instance of SandwichMachine class and write the rest of the codes ###
-git ad
+        amt_bread = self.machine_resources[bread_ingred]
+        amt_ham = self.machine_resources[ham_ingred]
+        amt_cheese = self.machine_resources[cheese_ingred]
+
+        print(f"{bread_ingred.capitalize()}: {amt_bread} slice(s)")
+        print(f"{ham_ingred.capitalize()}: {amt_ham} slice(s)")
+        print(f"{cheese_ingred.capitalize()}: {amt_cheese} ounce(s)")
