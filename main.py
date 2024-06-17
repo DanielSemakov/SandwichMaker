@@ -75,9 +75,17 @@ class SandwichMachine:
         numNickels = int(input("How many nickels?: "))
 
         return numDollars + 0.5 * numHalfDollars + 0.25 * numQuarters + 0.05 * numNickels
+
     def transaction_result(self, coins, cost) -> bool:
         """Return True when the payment is accepted, or False if money is insufficient.
            Hint: use the output of process_coins() function for cost input"""
+        if coins >= cost:
+            amt_change = coins - cost
+            print(f"Here is ${amt_change:.2f} in change.")
+            return True
+        else:
+            print("Sorry, that’s not enough money. Money refunded.")
+            return False
 
     def make_sandwich(self, sandwich_size, order_ingredients) -> None:
         """Deduct the required ingredients from the resources.
